@@ -1,6 +1,3 @@
-import modelo.*;
-import controlador.*;
-import vista.*;
 import java.util.*;
 
 public class Main {

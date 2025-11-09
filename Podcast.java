@@ -1,5 +1,3 @@
-package modelo;
-
 public class Podcast extends Contenido {
     private String duracion;
 
