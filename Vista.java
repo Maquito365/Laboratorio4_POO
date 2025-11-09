@@ -1,4 +1,4 @@
-public class VistaCMS {
+public class Vista {
     public void mostrarMenu() {
         System.out.println("=== Sistema de Gestión de Contenidos (CMS) ===");
         System.out.println("1. Crear contenido");

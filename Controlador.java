@@ -1,11 +1,10 @@
-import modelo.*;
 import java.util.*;
 
-public class ControladorCMS {
+public class Controlador {
     private List<Contenido> contenidos;
     private int contadorId = 1;
 
-    public ControladorCMS() {
+    public Controlador() {
         contenidos = new ArrayList<>();
     }
 

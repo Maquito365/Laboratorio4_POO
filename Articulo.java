@@ -7,7 +7,7 @@ public class Articulo extends Contenido{
     }
 
     public void setTexto(String texto){
-        return texto;
+        this.texto = texto;
     }
 
     @Override
