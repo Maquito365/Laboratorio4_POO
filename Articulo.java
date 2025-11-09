@@ -1,7 +1,7 @@
 public class Articulo extends Contenido{
     private String texto;
 
-    public classArticulo(int id, String titulo, String autor, String texto){
+    public Articulo(int id, String titulo, String autor, String texto){
         super(id,titulo,autor);
         this.texto = texto;
     }
