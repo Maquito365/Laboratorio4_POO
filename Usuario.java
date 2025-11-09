@@ -1,5 +1,3 @@
-package modelo;
-
 public abstract class Usuario {
     protected String nombre;
 

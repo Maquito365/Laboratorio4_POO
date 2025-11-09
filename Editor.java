@@ -1,5 +1,3 @@
-package modelo;
-
 public class Editor extends Usuario {
 
     public Editor(String nombre) {

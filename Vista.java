@@ -1,5 +1,3 @@
-package vista;
-
 public class VistaCMS {
     public void mostrarMenu() {
         System.out.println("=== Sistema de Gestión de Contenidos (CMS) ===");
