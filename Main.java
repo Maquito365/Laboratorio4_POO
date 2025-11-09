@@ -2,8 +2,8 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        ControladorCMS controlador = new ControladorCMS();
-        VistaCMS vista = new VistaCMS();
+        Controlador controlador = new Controlador();
+        Vista vista = new Vista();
 
         Administrador admin = new Administrador("Carlos");
         Editor editor = new Editor("María");
