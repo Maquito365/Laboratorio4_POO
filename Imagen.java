@@ -14,7 +14,7 @@ public class Imagen extends Contenido{
         System.out.println("--IMAGEN--");
         System.out.println("Titulo: "+ titulo);
         System.out.println("Autor: "+ autor);
-        System.out.println("Categorias: "+ categorias)
+        System.out.println("Categorias: "+ categorias);
         System.out.println("[ESTO ES UNA IMAGEN 100%]");
     }
 }

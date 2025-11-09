@@ -17,6 +17,6 @@ public class Video extends Contenido{
         System.out.println("Titulo: "+ titulo);
         System.out.println("Autor: "+ autor);
         System.out.println("URL: "+ url);
-        System.out.println("Categorias: "+ categorias)
+        System.out.println("Categorias: "+ categorias);
     }
 }
