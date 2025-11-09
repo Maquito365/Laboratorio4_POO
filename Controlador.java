@@ -41,4 +41,29 @@ public class Controlador {
         }
         return null;
     }
+    public void eliminarContenido(int id) {
+    Contenido eliminado = buscarPorId(id);
+    if (eliminado != null) {
+        contenidos.remove(eliminado);
+        System.out.println("El contenido [ID " + id + "] '" + eliminado.getTitulo() +
+                           "' publicado por " + eliminado.getAutor() + " fue eliminado correctamente.");
+    } else {
+        System.out.println("No se encontró contenido con ID " + id);
+    }
+}
+
+    public void generarReporte() {
+        System.out.println("=== REPORTE DE CONTENIDOS ===");
+        System.out.println("Total contenidos: " + contenidos.size());
+        long articulos = contenidos.stream().filter(c -> c instanceof Articulo).count();
+        long videos = contenidos.stream().filter(c -> c instanceof Video).count();
+        long imagenes = contenidos.stream().filter(c -> c instanceof Imagen).count();
+        long podcasts = contenidos.stream().filter(c -> c instanceof Podcast).count();
+
+        System.out.println("Artículos: " + articulos);
+        System.out.println("Videos: " + videos);
+        System.out.println("Imágenes: " + imagenes);
+        System.out.println("Podcasts: " + podcasts);
+    }
+
 }
