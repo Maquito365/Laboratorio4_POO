@@ -5,6 +5,10 @@ public class Podcast extends Contenido {
         super(id, titulo, autor);
         this.duracion = duracion;
     }
+    
+    public void setDuracion(String duracion) {
+        this.duracion = duracion;
+    }
 
     @Override
     public void publicar() {

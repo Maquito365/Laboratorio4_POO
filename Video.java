@@ -5,6 +5,10 @@ public class Video extends Contenido{
         super(id,titulo,autor);
         this.url = url;
     }
+    
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     @Override
     public void publicar(){
