@@ -25,32 +25,40 @@ public class Main {
                     System.out.print("Autor: ");
                     String autor = sc.nextLine();
 
+                    Contenido nuevo = null;
+
                     switch (tipo) {
                         case 1: // Artículo
                             System.out.print("Texto del artículo: ");
                             String texto = sc.nextLine();
-                            Articulo art = new Articulo(controlador.generarId(), titulo, autor, texto);
-                            controlador.agregarContenido(art);
+                            nuevo = new Articulo(controlador.generarId(), titulo, autor, texto);
                             break;
                         case 2: // Video
                             System.out.print("URL del video: ");
                             String url = sc.nextLine();
-                            Video vid = new Video(controlador.generarId(), titulo, autor, url);
-                            controlador.agregarContenido(vid);
+                            nuevo = new Video(controlador.generarId(), titulo, autor, url);
                             break;
                         case 3: // Imagen
-                            Imagen img = new Imagen(controlador.generarId(), titulo, autor);
-                            controlador.agregarContenido(img);
+                            nuevo = new Imagen(controlador.generarId(), titulo, autor);
                             break;
                         case 4: // Podcast
                             System.out.print("Duración: ");
                             String duracion = sc.nextLine();
-                            Podcast pod = new Podcast(controlador.generarId(), titulo, autor, duracion);
-                            controlador.agregarContenido(pod);
+                            nuevo = new Podcast(controlador.generarId(), titulo, autor, duracion);
                             break;
                         default:
                             System.out.println("Tipo no válido.");
+                            continue;
                     }
+
+                    System.out.print("Ingrese las categorías separadas por coma: ");
+                    String categoriasStr = sc.nextLine();
+                    String[] categorias = categoriasStr.split(",");
+                    for (String cat : categorias) {
+                        nuevo.agregarCategoria(cat.trim());
+                    }
+
+                    controlador.agregarContenido(nuevo);
                     break;
 
                 case 2: // Mostrar contenidos
@@ -61,10 +69,33 @@ public class Main {
                     System.out.print("ID del contenido a editar: ");
                     int idEdit = sc.nextInt();
                     sc.nextLine();
+
                     Contenido edit = controlador.buscarPorId(idEdit);
                     if (edit != null) {
                         System.out.print("Nuevo título: ");
                         String nuevoTitulo = sc.nextLine();
+
+                        // Si es un artículo, también permite editar el texto
+                        if (edit instanceof Articulo) {
+                            System.out.print("Nuevo texto del artículo: ");
+                            String nuevoTexto = sc.nextLine();
+                            ((Articulo) edit).setTexto(nuevoTexto);
+                        }
+
+                        // Si es un video, permite cambiar la URL
+                        else if (edit instanceof Video) {
+                            System.out.print("Nueva URL del video: ");
+                            String nuevaUrl = sc.nextLine();
+                            ((Video) edit).setUrl(nuevaUrl);
+                        }
+
+                        // Si es un podcast, permite cambiar la duración
+                        else if (edit instanceof Podcast) {
+                            System.out.print("Nueva duración del podcast: ");
+                            String nuevaDuracion = sc.nextLine();
+                            ((Podcast) edit).setDuracion(nuevaDuracion);
+                        }
+
                         Editor editor = new Editor("Editor del sistema");
                         editor.editarContenido(edit, nuevoTitulo);
                     } else {
@@ -91,6 +122,7 @@ public class Main {
                     System.out.println("Opción no válida.");
             }
         }
+
         sc.close();
     }
 }
