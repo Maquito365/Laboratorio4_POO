@@ -117,7 +117,11 @@ public class Main {
                     continuar = false;
                     System.out.println("Saliendo del sistema...");
                     break;
-
+                case 7: //filtrar por categoría
+                    System.out.print("Ingrese el nombre de la categoría: ");
+                    String categoria = sc.nextLine();
+                    controlador.filtrarPorCategoria(categoria);
+                break;
                 default:
                     System.out.println("Opción no válida.");
             }

@@ -8,6 +8,7 @@ public class Vista {
         System.out.println("4. Eliminar contenido");
         System.out.println("5. Generar reporte");
         System.out.println("6. Salir");
+        System.out.println("7. Filtrar por categoría");
         System.out.print("Seleccione una opción: ");
     }
 

@@ -26,14 +26,14 @@ public class Controlador {
         }
     }
 
-    public void filtrarPorCategoria(String categoria) {
-        System.out.println("Filtrando por categoría: " + categoria);
-        for (Contenido c : contenidos) {
-            if (c.getCategorias().contains(categoria)) {
-                c.visualizar();
+        public void filtrarPorCategoria(String categoria) {
+            System.out.println("Filtrando por categoría: " + categoria);
+            for (Contenido c : contenidos) {
+                if (c.getCategorias().contains(categoria)) {
+                    c.visualizar();
+                }
             }
         }
-    }
 
     public Contenido buscarPorId(int id) {
         for (Contenido c : contenidos) {
