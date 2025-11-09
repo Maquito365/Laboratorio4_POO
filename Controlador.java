@@ -1,12 +1,8 @@
 import java.util.*;
 
 public class Controlador {
-    private List<Contenido> contenidos;
+    private List<Contenido> contenidos = new ArrayList<>();
     private int contadorId = 1;
-
-    public Controlador() {
-        contenidos = new ArrayList<>();
-    }
 
     public int generarId() {
         return contadorId++;
@@ -14,12 +10,8 @@ public class Controlador {
 
     public void agregarContenido(Contenido c) {
         contenidos.add(c);
-        c.publicar();
-    }
-
-    public void eliminarContenido(int id) {
-        contenidos.removeIf(c -> c.getId() == id);
-        System.out.println("Contenido con ID " + id + " eliminado del sistema.");
+        System.out.println("[ID " + c.getId() + "] " + c.getClass().getSimpleName() +
+                           " publicado: " + c.getTitulo() + " por " + c.getAutor());
     }
 
     public void mostrarContenidos() {
@@ -28,6 +20,7 @@ public class Controlador {
             return;
         }
         for (Contenido c : contenidos) {
+            System.out.println("ID: " + c.getId());
             c.visualizar();
             System.out.println("-----------------------");
         }
@@ -40,21 +33,6 @@ public class Controlador {
                 c.visualizar();
             }
         }
-    }
-
-    public void generarReporte() {
-        System.out.println("=== REPORTE DE CONTENIDOS ===");
-        System.out.println("Total contenidos: " + contenidos.size());
-
-        long articulos = contenidos.stream().filter(c -> c instanceof Articulo).count();
-        long videos = contenidos.stream().filter(c -> c instanceof Video).count();
-        long imagenes = contenidos.stream().filter(c -> c instanceof Imagen).count();
-        long podcasts = contenidos.stream().filter(c -> c instanceof Podcast).count();
-
-        System.out.println("Artículos: " + articulos);
-        System.out.println("Videos: " + videos);
-        System.out.println("Imágenes: " + imagenes);
-        System.out.println("Podcasts: " + podcasts);
     }
 
     public Contenido buscarPorId(int id) {

@@ -6,11 +6,13 @@ public class Editor extends Usuario {
 
     @Override
     public void crearContenido(Contenido contenido) {
-        System.out.println("Editor " + nombre + " creó contenido: " + contenido.getTitulo());
+        System.out.println("Se creó el contenido: " + contenido.getTitulo() + " por " + contenido.getAutor());
     }
 
     public void editarContenido(Contenido contenido, String nuevoTitulo) {
+        int id = contenido.getId();
+        String autor = contenido.getAutor();
         contenido.setTitulo(nuevoTitulo);
-        System.out.println("Editor " + nombre + " editó el título a: " + nuevoTitulo);
+        System.out.println("El autor " + autor + " editó su contenido [ID " + id + "] y cambió el título a: " + nuevoTitulo);
     }
 }
